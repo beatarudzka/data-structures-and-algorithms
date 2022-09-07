@@ -1,16 +1,17 @@
-//https://leetcode.com/problems/plus-one/
+const plusOneSecondSolution = function (digits) {
+  for (let i = digits.length - 1; i >= 0; i--) {
+    digits[i]++;
+    if (digits[i] < 10) {
+      return digits;
+    } else {
+      digits[i] = 0;
+    }
+  }
 
-let digits = [6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3];
-const plusOne = function (digits) {
-  let numbers = String(digits.join(""));
-  numbers = BigInt(numbers);
-  numbers++;
-  const numbArr = String(numbers)
-    .split("")
-    .map((el) => {
-      return Number(el);
-    });
-  return numbArr;
+  digits.unshift(1);
+  return digits;
 };
 
-let digitsPlusOne = plusOne(digits);
+let digits1 = [3, 2, 9];
+let digits2 = [9];
+let digits3 = [9, 9];
