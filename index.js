@@ -1,17 +1,16 @@
-const plusOneSecondSolution = function (digits) {
-  for (let i = digits.length - 1; i >= 0; i--) {
-    digits[i]++;
-    if (digits[i] < 10) {
-      return digits;
-    } else {
-      digits[i] = 0;
-    }
-  }
+//https://leetcode.com/problems/product-of-array-except-self/
 
-  digits.unshift(1);
-  return digits;
+const array = [1, 2, 3, 4];
+
+const productExceptItself = function (nums) {
+  let result = 1;
+  let numArray = [];
+  for (let i = 0; i < nums.length; i++) {
+    result = nums[i] * result;
+  }
+  for (let i = 0; i < nums.length; i++) {
+    numArray.push(result / nums[i]);
+  }
 };
 
-let digits1 = [3, 2, 9];
-let digits2 = [9];
-let digits3 = [9, 9];
+const product = productExceptItself(array);
