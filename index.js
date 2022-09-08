@@ -1,14 +1,7 @@
-// string reversal
+// check if palindrome
 
-const reverseString = function (string) {
-  let reversed = "";
-  for (let letter of string) {
-    reversed = letter + reversed;
-  }
-  return reversed;
+const checkIfPalindrome = function (string) {
+  const palindrome = string.split("").reverse().join("");
+  if (palindrome === string) return true;
+  else return false;
 };
-const reversedString = reverseString("hello");
-console.log(reversedString);
-
-const string = "hello";
-console.log(string.split("").reverse().join(""));

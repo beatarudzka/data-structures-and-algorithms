@@ -83,3 +83,31 @@ const plusOneSecondSolution = function (digits) {
 let digits1 = [3, 2, 9];
 let digits2 = [9];
 let digits3 = [9, 9];
+
+//https://leetcode.com/problems/product-of-array-except-self/
+
+const productExceptItself = function (nums) {
+  let result = 1;
+  let numArray = [];
+  for (let i = 0; i < nums.length; i++) {
+    result = nums[i] * result;
+  }
+  for (let i = 0; i < nums.length; i++) {
+    numArray.push(result / nums[i]);
+  }
+};
+
+// string reversal
+
+const reverseString = function (string) {
+  let reversed = "";
+  for (let letter of string) {
+    reversed = letter + reversed;
+  }
+  return reversed;
+};
+const reversedString = reverseString("hello");
+console.log(reversedString);
+
+const string = "hello";
+console.log(string.split("").reverse().join(""));

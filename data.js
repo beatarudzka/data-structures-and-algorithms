@@ -2,7 +2,7 @@
 export class Node {
   constructor(value, next) {
     this.value = value;
-    this.next = null;
+    this.next = next;
   }
 }
 export class LinkedList {
