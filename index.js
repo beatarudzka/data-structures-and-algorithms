@@ -1,16 +1,14 @@
-//https://leetcode.com/problems/product-of-array-except-self/
+// string reversal
 
-const array = [1, 2, 3, 4];
-
-const productExceptItself = function (nums) {
-  let result = 1;
-  let numArray = [];
-  for (let i = 0; i < nums.length; i++) {
-    result = nums[i] * result;
+const reverseString = function (string) {
+  let reversed = "";
+  for (let letter of string) {
+    reversed = letter + reversed;
   }
-  for (let i = 0; i < nums.length; i++) {
-    numArray.push(result / nums[i]);
-  }
+  return reversed;
 };
+const reversedString = reverseString("hello");
+console.log(reversedString);
 
-const product = productExceptItself(array);
+const string = "hello";
+console.log(string.split("").reverse().join(""));
