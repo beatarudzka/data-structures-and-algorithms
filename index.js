@@ -1,20 +1,30 @@
-// check how many times appears letter in string and return letter with max value
+const array = [1, 2, 3, 4];
 
-const amountLettersInString = function (string) {
-  const obj = {};
-  for (const letter of string) {
-    obj[letter] ? obj[letter]++ : (obj[letter] = 1);
-  }
-  let maxNum = 0;
-  let maxLetter = "";
-  for (const char in obj) {
-    console.log(char);
-    if (obj[char] > maxNum) {
-      maxNum = obj[char];
-      maxLetter = char;
+function productExceptItself(nums) {
+  let rightProduct = [];
+  let leftProduct = [];
+  let result = [];
+
+  // populate left product
+  for (let i = 0; i < nums.length; i++) {
+    // element przed pierwszym elementem do 1 (ponieważ to mnożenie)
+    if (leftProduct.length === 0) {
+      leftProduct.push(1);
+    } else {
+      leftProduct.push(leftProduct[i - 1] * nums[i - 1]);
     }
   }
-  return obj;
-};
+  for (let i = nums.length - 1; i >= 0; i--) {
+    if (rightProduct.length === 0) {
+      rightProduct.push(1);
+    } else {
+      rightProduct.unshift(rightProduct[0] * nums[i + 1]);
+    }
+  }
+  for (let i = 0; i < nums.length; i++) {
+    result.push(rightProduct[i] * leftProduct[i]);
+  }
+  return result;
+}
 
-const result = amountLettersInString("heeeeelo$$$");
+const result = productExceptItself(array);
