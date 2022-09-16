@@ -1,30 +1,13 @@
-const array = [1, 2, 3, 4];
-
-function productExceptItself(nums) {
-  let rightProduct = [];
-  let leftProduct = [];
-  let result = [];
-
-  // populate left product
-  for (let i = 0; i < nums.length; i++) {
-    // element przed pierwszym elementem do 1 (ponieważ to mnożenie)
-    if (leftProduct.length === 0) {
-      leftProduct.push(1);
-    } else {
-      leftProduct.push(leftProduct[i - 1] * nums[i - 1]);
-    }
+const maxSubArray = function (nums) {
+  let currentSum = nums[0];
+  let maxSum = nums[0];
+  for (let i = 1; i < nums.length; i++) {
+    currentSum = Math.max(currentSum + nums[i], nums[i]);
+    maxSum = Math.max(currentSum, maxSum);
   }
-  for (let i = nums.length - 1; i >= 0; i--) {
-    if (rightProduct.length === 0) {
-      rightProduct.push(1);
-    } else {
-      rightProduct.unshift(rightProduct[0] * nums[i + 1]);
-    }
-  }
-  for (let i = 0; i < nums.length; i++) {
-    result.push(rightProduct[i] * leftProduct[i]);
-  }
-  return result;
-}
+  return maxSum;
+};
 
-const result = productExceptItself(array);
+const nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+const result = maxSubArray(nums);
+console.log(result);
