@@ -225,3 +225,38 @@ const maxSubArray = function (nums) {
 };
 
 const nums = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
+
+// https://leetcode.com/problems/is-subsequence/
+
+function isSubsequence(s, t) {
+  let p1 = 0;
+  let p2 = 0;
+  while (p1 < s.length && p2 < t.length) {
+    if (s[p1] === t[p2]) {
+      p1++;
+      p2++;
+    } else {
+      p2++;
+    }
+  }
+  return p1 === s.length;
+}
+
+// https://leetcode.com/problems/matrix-diagonal-sum/
+
+var diagonalSum = function (mat) {
+  let length = mat.length - 1;
+  let sum = 0;
+  for (let i = 0; i < mat.length; i++) {
+    sum += mat[i][i] + mat[i][length - i];
+  }
+  if (length % 2 === 0) {
+    sum -= mat[length / 2][length / 2];
+  }
+  return sum;
+};
+const mat = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
